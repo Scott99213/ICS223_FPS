@@ -9,17 +9,27 @@ public class ReactiveTarget : MonoBehaviour
     
     public void ReactToHit()
     {
+        Animator enemyAnimator = GetComponent<Animator>();
+        if (enemyAnimator != null)
+        {
+            enemyAnimator.SetTrigger("Die");
+        }
         WanderingAI enemyAI = GetComponent<WanderingAI>();
         if (enemyAI != null)
         {
             enemyAI.ChangeState(EnemyStates.dead);
         }
-        StartCoroutine(Die());
+        //StartCoroutine(Die());
+    }
+
+    private void DeadEvent()
+    {
+        Destroy(this.gameObject);
     }
 
     private IEnumerator Die()
     {
-        iTween.RotateAdd(this.gameObject, new Vector3(-75, 0, 0), 1);
+        //iTween.RotateAdd(this.gameObject, new Vector3(-75, 0, 0), 1);
 
 
 
