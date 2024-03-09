@@ -1064,6 +1064,7 @@ GameObject:
   - component: {fileID: 249825962}
   - component: {fileID: 249825964}
   - component: {fileID: 249825963}
+  - component: {fileID: 249825965}
   m_Layer: 5
   m_Name: OptionsPopup
   m_TagString: Untagged
@@ -1131,6 +1132,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249825961}
   m_CullTransparentMesh: 1
+--- !u!114 &249825965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249825961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258252e4b6f2a0d4c96b035cf7dd8553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiController: {fileID: 1108301051}
 --- !u!43 &256777349
 Mesh:
   m_ObjectHideFlags: 0
@@ -1431,10 +1445,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: -2076597104, guid: 7146f89077ead2542bf1ad7bca470bdc, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -3290,7 +3304,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 901446507}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 249825965}
+        m_TargetAssemblyTypeName: OptionsPopup, Assembly-CSharp
+        m_MethodName: OnExitGameButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &901446507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8507,7 +8533,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 963194227}
-  aimSize: 16
 --- !u!1 &995985022
 GameObject:
   m_ObjectHideFlags: 0
@@ -9302,6 +9327,7 @@ GameObject:
   - component: {fileID: 1108301049}
   - component: {fileID: 1108301048}
   - component: {fileID: 1108301047}
+  - component: {fileID: 1108301051}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -9338,7 +9364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -9397,6 +9423,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1108301051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108301046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac031a8ff298d84f94e48e0c53278a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreValue: {fileID: 1162738190}
+  healthBar: {fileID: 299771848}
+  crossHair: {fileID: 1664596258}
+  optionsPopup: {fileID: 249825965}
 --- !u!1001 &1114241960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9575,7 +9617,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1136684310}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 249825965}
+        m_TargetAssemblyTypeName: OptionsPopup, Assembly-CSharp
+        m_MethodName: OnSettingsButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1136684310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12287,7 +12341,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1488661826}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 249825965}
+        m_TargetAssemblyTypeName: OptionsPopup, Assembly-CSharp
+        m_MethodName: OnReturnToGameButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1488661826
 MonoBehaviour:
   m_ObjectHideFlags: 0
