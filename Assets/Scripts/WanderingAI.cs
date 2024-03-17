@@ -16,6 +16,9 @@ public class WanderingAI : MonoBehaviour
     private float obstacleRange = 5.0f;
     private float sphereRadius = 0.75f;
 
+    private float baseSpeed = 0.25f;
+    float difficultySpeedDelta = 0.3f;
+
     public enum EnemyStates { alive, dead };
     private EnemyStates enemyState;
     // Start is called before the first frame update
@@ -57,7 +60,13 @@ public class WanderingAI : MonoBehaviour
         } 
     }
 
-   public void ChangeState(EnemyStates state)
+    public void SetDifficulty(int newDifficulty) 
+    {
+        Debug.Log("WanderingAI.SetDifficulty(" + newDifficulty + ")");
+        enemySpeed = baseSpeed + (newDifficulty * difficultySpeedDelta);
+    }
+
+    public void ChangeState(EnemyStates state)
     {
         enemyState = state;
     }

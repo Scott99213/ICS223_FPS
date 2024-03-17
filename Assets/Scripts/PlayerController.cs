@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         health -= 1;
         Debug.Log("Health: " + health);
+        Messenger<float>.Broadcast(GameEvent.HEALTH_CHANGED, (float)health) ;
         if (health == 0)
         {
             Debug.Break();

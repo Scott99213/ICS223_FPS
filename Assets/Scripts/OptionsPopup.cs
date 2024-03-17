@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class OptionsPopup : MonoBehaviour
+public class OptionsPopup : BasePopup
 {
     [SerializeField] private UIController uiController;
     [SerializeField] private SettingsPopup settingsPopup;
@@ -19,18 +19,6 @@ public class OptionsPopup : MonoBehaviour
         
     }
 
-    public void Open()
-    {
-        gameObject.SetActive(true);
-    }
-    public void Close()
-    {
-        gameObject.SetActive(false);
-    }
-    public bool IsActive()
-    {
-        return gameObject.activeSelf;
-    }
     public void OnSettingsButton()
     {
         Debug.Log("settings clicked");

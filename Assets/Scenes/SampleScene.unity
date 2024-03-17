@@ -1584,7 +1584,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.412
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2912,6 +2912,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8409075024970651200, guid: 8acca8f2d44268549a0fa0c191b6e464, type: 3}
   iguanaPrefab: {fileID: 141256, guid: b4806bcfd71324778b360c0299195b34, type: 3}
   iguanaSpawnPt: {fileID: 718214932}
+  ui: {fileID: 1108301051}
 --- !u!4 &632700807
 Transform:
   m_ObjectHideFlags: 0
