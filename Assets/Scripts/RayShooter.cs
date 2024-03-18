@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RayShooter : MonoBehaviour
+public class RayShooter : ActiveDuringGameplay
 {
 
     [SerializeField] private Camera cam;
@@ -47,5 +47,6 @@ public class RayShooter : MonoBehaviour
         yield return new WaitForSeconds(1);
         Destroy(sphere);
     }
+
 
 }

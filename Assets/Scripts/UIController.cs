@@ -13,14 +13,20 @@ public class UIController : MonoBehaviour
     [SerializeField] private OptionsPopup optionsPopup;
     [SerializeField] private SettingsPopup settingsPopup;
 
+    private int popupsActive = 0;
+
     private void Awake()
     {
         Messenger<float>.AddListener(GameEvent.HEALTH_CHANGED, OnHealthChanged);
+        Messenger.AddListener(GameEvent.POPUP_OPENED, OnPopupOpened);
+        Messenger.AddListener(GameEvent.POPUP_CLOSED, OnPopupClosed);
     }
 
     private void OnDestroy()
     {
         Messenger<float>.RemoveListener(GameEvent.HEALTH_CHANGED, OnHealthChanged);
+        Messenger.RemoveListener(GameEvent.POPUP_OPENED, OnPopupOpened);
+        Messenger.RemoveListener(GameEvent.POPUP_CLOSED, OnPopupClosed);
     }
 
     // Start is called before the first frame update
@@ -32,11 +38,31 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !optionsPopup.IsActive() && !settingsPopup.IsActive())
+        if (Input.GetKeyDown(KeyCode.Escape) && popupsActive == 0)
         {
-            SetGameActive(false);
             optionsPopup.Open();
         }
+    }
+
+    private void OnPopupClosed()
+    {
+        popupsActive--;
+        if (popupsActive == 0)
+        {
+            SetGameActive(true);
+            Messenger.Broadcast(GameEvent.GAME_ACTIVE);
+        }
+    }
+
+    private void OnPopupOpened()
+    {
+        if (popupsActive == 0)
+        {
+            SetGameActive(false);
+            Messenger.Broadcast(GameEvent.GAME_INACTIVE);
+        }
+        popupsActive++;
+        
     }
 
     private void OnHealthChanged(float health)
