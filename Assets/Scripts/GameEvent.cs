@@ -11,4 +11,5 @@ public static class GameEvent
     public const string POPUP_CLOSED = "POPUP_CLOSED";
     public const string GAME_ACTIVE = "GAME_ACTIVE";
     public const string GAME_INACTIVE = "GAME_INACTIVE";
+    public const string PICKUP_HEALTH = "PICKUP_HEALTH";
 }

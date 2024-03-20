@@ -5,6 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private int health;
+    private int maxHealth = 5;
+
+    private void Awake()
+    {
+        Messenger<int>.AddListener(GameEvent.PICKUP_HEALTH, this.OnPickupHealth);
+    }
+    private void OnDestroy()
+    {
+        Messenger<int>.RemoveListener(GameEvent.PICKUP_HEALTH, this.OnPickupHealth);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -27,5 +37,16 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnPickupHealth(int healthAdded)
+    {
+        health += healthAdded;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+        
+        Messenger<float>.Broadcast(GameEvent.HEALTH_CHANGED, health);
     }
 }
