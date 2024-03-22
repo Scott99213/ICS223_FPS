@@ -29,7 +29,8 @@ public class PlayerController : MonoBehaviour
         Messenger<float>.Broadcast(GameEvent.HEALTH_CHANGED, (float)health) ;
         if (health == 0)
         {
-            Debug.Break();
+            //Debug.Break();
+            Messenger.Broadcast(GameEvent.PLAYER_DEAD);
         }
     }
 
